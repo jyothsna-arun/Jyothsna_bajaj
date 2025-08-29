@@ -10,7 +10,18 @@ const PORT = 3000;
 
 // GET /bfhl
 app.get("/bfhl", (req, res) => {
-  res.json({ operation_code: 1 });
+  res.json({
+    is_success: true,
+    user_id: "Jyothsna_01112004",
+    email: "jyothsna.a2022@vitstudent.ac.in",
+    roll_number: "22BAI1024",
+    odd_numbers: ["1"],
+    even_numbers: ["334","4"],
+    alphabets: ["M","B"],
+    special_characters: [],
+    sum: "339",
+    concat_string: "Bm"
+  });
 });
 
 // POST /bfhl
