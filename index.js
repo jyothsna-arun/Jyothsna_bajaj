@@ -10,40 +10,9 @@ const PORT = 3000;
 
 // GET /bfhl
 app.get("/bfhl", (req, res) => {
-  const data = ["M","1","334","4","B"]; // default data for GET
-  let odd = [], even = [], alpha = [], special = [];
-  let sum = 0;
-  let concatAlpha = "";
-
-  data.forEach((item) => {
-    if (/^-?\d+$/.test(item)) { 
-      let num = parseInt(item);
-      if (num % 2 === 0) even.push(item);
-      else odd.push(item);
-      sum += num;
-    } else if (/^[a-zA-Z]+$/.test(item)) {
-      alpha.push(item.toUpperCase());
-      concatAlpha += item;
-    } else {
-      special.push(item);
-    }
-  });
-
-  const response = {
-    is_success: true,
-    user_id: `${FULL_NAME}_${DOB}`,
-    email: EMAIL,
-    roll_number: ROLL,
-    odd_numbers: odd,
-    even_numbers: even,
-    alphabets: alpha,
-    special_characters: special,
-    sum: sum.toString(),
-    concat_string: alternateCapsReverse(concatAlpha)
-  };
-
-  res.json(response);
+  res.json({ operation_code: 1 });
 });
+
 // POST /bfhl
 app.post("/bfhl", (req, res) => {
   const data = req.body.data || [];
